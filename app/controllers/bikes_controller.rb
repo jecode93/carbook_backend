@@ -2,8 +2,9 @@ class BikesController < ApplicationController
   before_action :set_bike, only: %i[ show edit update destroy ]
 
   # GET /bikes or /bikes.json
-  def index
+  def display_bikes
     @bikes = Bike.all
+    render json: {bikes: @bike }
   end
 
   # GET /bikes/1 or /bikes/1.json
