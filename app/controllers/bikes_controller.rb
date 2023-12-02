@@ -1,15 +1,14 @@
 class BikesController < ApplicationController
-  before_action :set_bike, only: %i[ show edit update destroy ]
+  before_action :set_bike, only: %i[show edit update destroy]
 
   # GET /bikes or /bikes.json
   def display_bikes
     @bikes = Bike.all
-    render json: {bikes: @bike }
+    render json: { bikes: @bike }
   end
 
   # GET /bikes/1 or /bikes/1.json
-  def show
-  end
+  def show; end
 
   # GET /bikes/new
   def new
@@ -17,8 +16,7 @@ class BikesController < ApplicationController
   end
 
   # GET /bikes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /bikes or /bikes.json
   def create
@@ -26,7 +24,7 @@ class BikesController < ApplicationController
 
     respond_to do |format|
       if @bike.save
-        format.html { redirect_to bike_url(@bike), notice: "Bike was successfully created." }
+        format.html { redirect_to bike_url(@bike), notice: 'Bike was successfully created.' }
         format.json { render :show, status: :created, location: @bike }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +37,7 @@ class BikesController < ApplicationController
   def update
     respond_to do |format|
       if @bike.update(bike_params)
-        format.html { redirect_to bike_url(@bike), notice: "Bike was successfully updated." }
+        format.html { redirect_to bike_url(@bike), notice: 'Bike was successfully updated.' }
         format.json { render :show, status: :ok, location: @bike }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,19 +51,21 @@ class BikesController < ApplicationController
     @bike.destroy!
 
     respond_to do |format|
-      format.html { redirect_to bikes_url, notice: "Bike was successfully destroyed." }
+      format.html { redirect_to bikes_url, notice: 'Bike was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bike
-      @bike = Bike.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def bike_params
-      params.require(:bike).permit(:name, :description, :deposit, :finance_fee, :option_to_purchase_fee, :total_amount_payable, :duration, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_bike
+    @bike = Bike.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def bike_params
+    params.require(:bike).permit(:name, :description, :deposit, :finance_fee, :option_to_purchase_fee,
+                                 :total_amount_payable, :duration, :user_id)
+  end
 end
