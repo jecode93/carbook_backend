@@ -1,5 +1,4 @@
 class BikesController < ApplicationController
-  before_action :set_bike, only: %i[show edit update destroy]
 
   # GET /bikes or /bikes.json
   def display_bikes
