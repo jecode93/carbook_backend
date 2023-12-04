@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   def find_current_user
     return nil unless request.headers['Authorization'].present?
 
-    token = request.headers['Authorization'].split(' ').last
+    token = request.headers['Authorization'].split.last
     payload = decode_token(token)
     User.find_by(id: payload['user_id'])
   rescue JWT::DecodeError
