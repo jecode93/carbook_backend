@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   get 'display_bikes', to: "bikes#display_bikes"
 
+  post '/login', to: 'authentication#login'
+  post '/signup', to: 'users#create'
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
