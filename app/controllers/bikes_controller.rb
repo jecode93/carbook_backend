@@ -1,5 +1,4 @@
 class BikesController < ApplicationController
-
   def display_bikes
     @bikes = Bike.all
     render json: { bikes: @bikes }

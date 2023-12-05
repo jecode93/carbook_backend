@@ -1,15 +1,13 @@
 class ReservationsController < ApplicationController
-
-
- def create_reservation
-  @reservebike = Reservation.new(reservation_params.merge(user_id: @current_user.id))
+  def create_reservation
+    @reservebike = Reservation.new(reservation_params.merge(user_id: @current_user.id))
 
     if @reservebike.save
-      render json: {message: "Your bike has been reserved"}
+      render json: { message: 'Your bike has been reserved' }
     else
-       render json: @reservebike.errors, status: :unprocessable_entity 
+      render json: @reservebike.errors, status: :unprocessable_entity
     end
- end
+  end
 
   private
 
