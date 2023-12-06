@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   get 'display_bikes', to: "bikes#display_bikes"
+  post 'create_bikes', to: "bikes#create"
 
   post '/login', to: 'authentication#login'
   post '/signup', to: 'users#create'
