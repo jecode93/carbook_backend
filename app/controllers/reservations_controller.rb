@@ -1,4 +1,9 @@
 class ReservationsController < ApplicationController
+  def display_reservation
+    @all_reservations = Reservation.where(user_id: @current_user.id)
+    render json: { message: @all_reservations }
+  end
+
   def create_reservation
     @reservebike = Reservation.new(reservation_params.merge(user_id: @current_user.id))
 
