@@ -1,5 +1,4 @@
 class ReservationsController < ApplicationController
-
   def display_reservation
     @all_reservations = Reservation.where(user_id: @current_user.id)
     render json: { message: @all_reservations }
