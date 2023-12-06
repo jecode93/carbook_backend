@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get '/display_reservation', to: "reservations#display_reservation"
   post '/reserve', to: "reservations#create_reservation"
 
+  delete 'delete_bike', to: 'bikes#delete_bike'
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
