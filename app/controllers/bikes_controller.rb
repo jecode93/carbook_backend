@@ -44,7 +44,7 @@ class BikesController < ApplicationController
   end
 
   # DELETE /bikes/1 or /bikes/1.json
-  def destroy
+  def delete_bike
     @bike.destroy!
 
     respond_to do |format|
