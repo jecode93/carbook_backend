@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post '/login', to: 'authentication#login'
   post '/signup', to: 'users#create'
 
+  get '/display_reservation', to: "reservations#display_reservation"
   post '/reserve', to: "reservations#create_reservation"
 
   # Defines the root path route ("/")
