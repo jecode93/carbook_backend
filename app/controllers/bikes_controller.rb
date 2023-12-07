@@ -44,7 +44,7 @@ class BikesController < ApplicationController
   end
 
   # DELETE /bikes/1 or /bikes/1.json
-  def delete_bike
+  def destroy
     @bike = Bike.find(params[:id])
     if @bike.destroy
       render json: { message: 'Your bike has been  deleted' }
