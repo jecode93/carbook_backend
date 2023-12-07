@@ -1,6 +1,6 @@
 class BikesController < ApplicationController
   def display_bikes
-    @bikes = Bike.all
+    @bikes = Bike.order(created_at: :desc)
     render json: { bikes: @bikes }
   end
 
