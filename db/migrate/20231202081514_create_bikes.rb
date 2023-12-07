@@ -9,6 +9,7 @@ class CreateBikes < ActiveRecord::Migration[7.1]
       t.float :option_to_purchase_fee
       t.float :total_amount_payable
       t.integer :duration
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

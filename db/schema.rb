@@ -23,8 +23,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_02_081921) do
     t.float "option_to_purchase_fee"
     t.float "total_amount_payable"
     t.integer "duration"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bikes_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -44,6 +46,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_02_081921) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bikes", "users"
   add_foreign_key "reservations", "bikes"
   add_foreign_key "reservations", "users"
 end
