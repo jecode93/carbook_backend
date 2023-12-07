@@ -5,7 +5,7 @@ class AuthenticationController < ApplicationController
 
     if user
       token = encode_token(user_id: user.id)
-      render json: { token: token }
+      render json: { token: }
     else
       render json: { error: 'Invalid username' }, status: :unauthorized
     end
