@@ -45,11 +45,11 @@ class BikesController < ApplicationController
 
   # DELETE /bikes/1 or /bikes/1.json
   def destroy
-    @bike.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to bikes_url, notice: 'Bike was successfully destroyed.' }
-      format.json { head :no_content }
+    @bike = Bike.find(params[:id])
+    if @bike.destroy
+      render json: { message: 'Your bike has been  deleted' }
+    else
+      render json: @bike.errors, status: :unprocessable_entity
     end
   end
 
