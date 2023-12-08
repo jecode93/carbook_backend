@@ -6,7 +6,8 @@
       finance_fee: '500',
       option_to_purchase_fee: '200',
       total_amount_payable: '100',
-      duration: '50'
+      duration: '50',
+      user_id: 1
       )
 
       Bike.create!(
@@ -17,5 +18,6 @@
         finance_fee: '500',
         option_to_purchase_fee: '200',
         total_amount_payable: '100',
-        duration: '50'
+        duration: '50',
+        user_id: 1
         )

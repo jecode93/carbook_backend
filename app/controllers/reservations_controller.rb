@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   def display_reservation
-    @all_reservations = Reservation.where(user_id: @current_user.id)
+    @all_reservations = Reservation.where(user_id: @current_user.id).order(created_at: :desc)
     render json: { message: @all_reservations }
   end
 
