@@ -7,13 +7,10 @@ class BikesController < ApplicationController
   # POST /bikes or /bikes.json
   def create
     @bike = Bike.new(bike_params.merge(user_id: @current_user.id))
-
-    respond_to do |format|
-      if @bike.save
-        format.json { render :show, status: :created, location: @bike }
-      else
-        format.json { render json: @bike.errors, status: :unprocessable_entity }
-      end
+    if @bike.save
+      render json: { message: 'Bike has been created' }
+    else
+      render json: { errors: @bike.errors.full_messages, status: :unprocessable_entity }
     end
   end
 

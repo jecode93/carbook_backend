@@ -77,3 +77,5 @@ group :test do
 end
 
 gem 'rubocop', '>= 1.0', '< 2.0'
+
+gem 'rspec-support', '3.12.1'
