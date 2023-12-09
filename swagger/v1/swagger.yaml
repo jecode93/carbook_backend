@@ -1,0 +1,124 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/login":
+    post:
+      summary: Authenticates a user
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+              - username
+  "/display_bikes":
+    get:
+      summary: Displays a list of bikes
+      responses:
+        '200':
+          description: successful
+  "/create_bikes":
+    post:
+      summary: Creates a bike
+      parameters: []
+      responses:
+        '201':
+          description: created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                image:
+                  type: string
+                description:
+                  type: string
+                deposit:
+                  type: float
+                finance_fee:
+                  type: float
+                option_to_purchase_fee:
+                  type: float
+                total_amount_payable:
+                  type: float
+                duration:
+                  type: integer
+                user_id:
+                  type: bigint
+              required:
+              - name
+              - image
+              - description
+              - deposit
+              - finance_fee
+              - option_to_purchase_fee
+              - total_amount_payable
+              - duration
+              - user_id
+  "/display_reservation":
+    get:
+      summary: Displays a list of reservations
+      responses:
+        '200':
+          description: successful
+  "/reserve":
+    post:
+      summary: Creates a reservation
+      parameters: []
+      responses:
+        '201':
+          description: created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                city:
+                  type: string
+                date:
+                  type: date
+                user_id:
+                  type: bigint
+                bike_id:
+                  type: bigint
+              required:
+              - city
+              - date
+              - user_id
+              - bike_id
+  "/signup":
+    post:
+      summary: Creates a user (signup)
+      parameters: []
+      responses:
+        '201':
+          description: created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+              - username
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
