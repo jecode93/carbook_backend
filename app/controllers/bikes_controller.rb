@@ -8,7 +8,7 @@ class BikesController < ApplicationController
   def create
     @bike = Bike.new(bike_params.merge(user_id: @current_user.id))
     if @bike.save
-      render json: { message: 'Bike has been created' }
+      render json: { message: 'Car has been created' }
     else
       render json: { errors: @bike.errors.full_messages, status: :unprocessable_entity }
     end
