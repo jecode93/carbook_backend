@@ -93,16 +93,15 @@ Install this project using:
 
 To run the project, execute the following command:
 
-- Launch index.html file in your browser
-
+- rails db:create <!-- To create the database--> 
+- rails db:migrate <!-- To migrate the database structure>
+- rails db:seed <!-- To add initial data if they in exist in the seeds.rb file in the db folder>
 
 ### Run tests
 
 To run tests, run the following command:
 
-- Rails server (In the command line)
-- Go to http://127.0.0.1:3000
-- Enjoy
+- rspec ./spec/models/
 
 ### Deployment
 
