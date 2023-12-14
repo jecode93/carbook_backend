@@ -53,10 +53,10 @@ group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'rspec-rails', '~> 5.0'
   gem 'rswag'
-  gem 'rswag-api'
   gem 'rswag-specs'
-  gem 'rswag-ui'
 end
+gem 'rswag-api'
+gem 'rswag-ui'
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
