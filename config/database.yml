@@ -23,8 +23,8 @@ default: &default
 development:
   <<: *default
   database: fc_backend_development
-  username: postgres
-  password: Anshuman@108
+  # username: postgres
+  # password: Anshuman@108
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
@@ -59,8 +59,8 @@ development:
 test:
   <<: *default
   database: fc_backend_test
-  username: postgres
-  password: Anshuman@108
+  # username: postgres
+  # password: Anshuman@108
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -84,6 +84,4 @@ test:
 #
 production:
   <<: *default
-  database: fc_backend_production
-  username: fc_backend
-  password: <%= ENV["FC_BACKEND_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
