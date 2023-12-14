@@ -76,7 +76,7 @@ Rails.application.configure do
 
   config.middleware.insert_before 0, Rack::Cors do
     allow do
-      origins 'http://localhost:3001' # Add the origin of your frontend application
+      origins 'https://final-capstone-frontend-3l0g.onrender.com' # Add the origin of your frontend application
       resource '*', headers: :any, methods: [:get, :post, :put, :patch, :delete, :options, :head], credentials: true
     end
   end
